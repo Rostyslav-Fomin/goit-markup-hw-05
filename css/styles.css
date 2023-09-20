@@ -10,7 +10,10 @@
   --border-second-color: #eeeeee;
   --background-color-4: #c4c4c4;
   --background-color-5: rgba(255, 255, 255, 0.1);
-  --gallary-background: rgba(47, 48, 58, 0.80);
+  --background-modal: rgba(0, 0, 0, 0.2);
+  --modal-button: rgba(0, 0, 0, 0.1);
+  --modal-icon-button: #000000;
+  --gallary-background: rgba(47, 48, 58, 0.8);
   --team-icons-color: #afb1b8;
   --portfolio-overlay: rgba(33, 150, 243, 0.9);
 
@@ -236,7 +239,61 @@ h1 {
   letter-spacing: 0.96px;
   cursor: pointer;
 }
+.backdrop {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 100;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--background-modal);
+}
+.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 528px;
+  height: 581px;
+  margin: auto;
+
+  border-radius: 4px;
+  background: var(--background-color-1);
+  box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+.modal-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  display: flex;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+
+  border: 1px solid var(--modal-button);
+  background-color: var(--background-color-1);
+
+  color: var(--modal-icon-button);
+}
+.modal-icon {
+  fill: currentColor;
+}
 /* Особливості */
 .benefits-section {
   padding-bottom: 0;
@@ -296,7 +353,8 @@ h1 {
   gap: 30px;
 }
 .gallery-item {
-position: relative;
+  position: relative;
+  z-index: 1;
 
   --grid-items: 3;
 }
@@ -309,6 +367,7 @@ position: relative;
   position: absolute;
   bottom: 0;
   left: 0;
+  z-index: 1;
 
   width: 100%;
   min-height: 70px;
@@ -318,12 +377,12 @@ position: relative;
 
   background-color: var(--gallary-background);
 
-color: var(--background-color-1);
-font-weight: 700;
-line-height: 1.2;
-letter-spacing: 0.42px;
-text-transform: uppercase;
-text-align: center;
+  color: var(--background-color-1);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.42px;
+  text-transform: uppercase;
+  text-align: center;
 }
 /* Команда */
 .team-section {
@@ -590,6 +649,7 @@ text-align: center;
   position: absolute;
   top: 0;
   left: 0;
+  transform: translateX(-100%);
 
   padding-top: 63px;
   padding-right: 24px;
@@ -602,6 +662,9 @@ text-align: center;
   font-size: 18px;
   line-height: 1.55;
   letter-spacing: 0.54px;
+}
+.item:hover .overlay-text {
+  transform: translateX(0);
 }
 .card-container {
   padding-top: 20px;

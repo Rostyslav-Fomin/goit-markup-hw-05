@@ -119,6 +119,8 @@ p {
   line-height: 1.2;
   letter-spacing: 0.28px;
   text-decoration: none;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .studio-link {
   color: var(--accent-color);
@@ -163,6 +165,8 @@ p {
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: 0.28px;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contact-link:hover,
 .contact-link:focus {
@@ -246,23 +250,29 @@ h1 {
   top: 0;
   left: 0;
   z-index: 100;
+  opacity: 1;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
   background-color: var(--background-modal);
+
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .is-hidden {
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
 }
+.backdrop.is-hidden .modal{
+  transform: translate(-50%, -50%) scale(0.2);
+}
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
 
   width: 528px;
   height: 581px;
@@ -272,6 +282,8 @@ h1 {
   background: var(--background-color-1);
   box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+
+    transition: transform  250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-button {
   position: absolute;
@@ -443,6 +455,8 @@ h1 {
 
   background-color: var(--background-color-1);
   border-radius: 50%;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),  background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .team-icon {
   fill: var(--team-icons-color);
@@ -472,6 +486,8 @@ h1 {
   border-radius: 4px;
   border: 1px solid var(--team-icons-color);
   color: var(--team-icons-color);
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* .clients-item:not(:last-child) {
   margin-right: 10px;
@@ -565,6 +581,8 @@ h1 {
   height: 44px;
   border-radius: 50%;
   background-color: var(--background-color-5);
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer-icon {
   fill: var(--background-color-1);
@@ -614,6 +632,8 @@ h1 {
   line-height: 1, 62;
   letter-spacing: 0.48px;
   cursor: pointer;
+
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-first {
   color: var(--background-color-1);
@@ -635,6 +655,8 @@ h1 {
 .link-item {
   display: block;
   text-decoration: none;
+
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .link-item:hover,
 .link-item:focus {
@@ -649,8 +671,9 @@ h1 {
   position: absolute;
   top: 0;
   left: 0;
-  transform: translateX(-100%);
+  transform: translateY(100%);
 
+  min-height: 100%;
   padding-top: 63px;
   padding-right: 24px;
   padding-bottom: 63px;
@@ -662,9 +685,12 @@ h1 {
   font-size: 18px;
   line-height: 1.55;
   letter-spacing: 0.54px;
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.item:hover .overlay-text {
-  transform: translateX(0);
+.link-item:hover .overlay-text,
+.link-item:focus .overlay-text {
+  transform: translateY(0);
 }
 .card-container {
   padding-top: 20px;

@@ -671,9 +671,8 @@ h1 {
   position: absolute;
   top: 0;
   left: 0;
-  transform: translateY(100%);
+  transform: translateY(101%);
 
-  min-height: 100%;
   padding-top: 63px;
   padding-right: 24px;
   padding-bottom: 63px;
